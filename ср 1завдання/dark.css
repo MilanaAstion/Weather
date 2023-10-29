@@ -1,0 +1,39 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    font-size: 25px;
+    background-color: #171750;
+    color: #ffffff;
+}
+
+h1 {
+    text-align: center;
+    color: #ffffff;
+}
+
+label {
+    margin-top: 10px;
+}
+
+#theme-status, #clear-storage {
+    margin-top: 10px;
+}
+
+#clear-storage {
+    background-color: #73abeec9;
+    color: #fff;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 15px;
+}
+
+#clear-storage:hover {
+    background-color: #c0392b;
+}

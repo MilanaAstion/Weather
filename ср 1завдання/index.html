@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Теми</title>
+        <link id="theme-style" rel="stylesheet" href="light.css">
+        <style>
+            
+        </style>
+    </head>
+<body>
+    <h1>Змінення теми оформлення</h1>
+    <label for="theme-switch">Змінити тему:</label>
+    <input type="checkbox" id="theme-switch">
+    <div id="theme-status">Світла тема</div>
+    <button id="clear-storage">Очистити</button>
+
+    <script>
+        const themeSwitch = document.getElementById("theme-switch");
+        const themeStatus = document.getElementById("theme-status");
+        const themeStyle = document.getElementById("theme-style");
+        const clearStorageButton = document.getElementById("clear-storage");
+
+        const currentTheme = localStorage.getItem("theme");
+
+        if (currentTheme) {
+            themeStyle.href = `${currentTheme}.css`;
+            if (currentTheme === "dark") {
+                themeSwitch.checked = true;
+                themeStatus.textContent = "Темна тема";
+            }
+        }
+
+        themeSwitch.addEventListener("change", () => {
+            if (themeSwitch.checked) {
+                themeStyle.href = "dark.css";
+                themeStatus.textContent = "Темна тема";
+                localStorage.setItem("theme", "dark");
+            } else {
+                themeStyle.href = "light.css";
+                themeStatus.textContent = "Світла тема";
+                localStorage.setItem("theme", "light");
+            }
+        });
+
+        clearStorageButton.addEventListener("click", () => {
+            localStorage.clear();
+            alert("localStorage очищено!");
+        });
+    </script>
+</body>
+</html>
